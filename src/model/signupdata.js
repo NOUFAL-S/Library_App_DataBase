@@ -8,11 +8,11 @@ mongoose.connect('mongodb://localhost:27017/library');
 const Schema = mongoose.Schema;
 
 
-const BookSchema = new Schema({
-title:String,
-author:String,
-genre:String,
-image:String
+const SignupSchema = new Schema({
+username:String,
+email:String,
+password:String,
+
 
 
 
@@ -20,7 +20,7 @@ image:String
 
 
 //model creation
- var Bookdata=mongoose.model('bookdata',BookSchema);
+ var Signupdata=mongoose.model('signupdata',SignupSchema);
 
 
- module.exports = Bookdata;
+ module.exports = Signupdata;

@@ -39,21 +39,21 @@
   
     <div class="signup-form">
     
-      <form name="registration" action="/" onsubmit="return formValidation()" >
+      <form  method="POST" action="/Signup/sign"  onsubmit="return formValidation()" >
         <h2>Sign Up</h2>
         <p>Please fill in this form to create an account!</p>
         <hr>
             <div class="form-group">
           <label>Username</label>
-              <input type="text" class="form-control" name="username" >
+              <input type="text" class="form-control" name="username" required="required">
             </div>
             <div class="form-group">
           <label>Email Address</label>
-              <input type="email" class="form-control" name="email" >
+              <input type="email" class="form-control" name="email"required="required">
             </div>
         <div class="form-group">
           <label>Password</label>
-                <input type="password" class="form-control" name="passid">
+                <input type="password" class="form-control" name="password" required="required">
             </div>
                
             
@@ -61,14 +61,14 @@
                 <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
             </div>
         </form>
-      <div class="text-center">Already have an account? <a href="signup.html">Login here</a></div>
+      <div class="text-center">Already have an account? <a href="./login">Login here</a></div>
     </div>
     <div class="footer">
       <b>copyright@2020</b>
    
    </div>
 
-   <script src="/js/Login.js"></script>
+   <script src="/js/login.js"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
