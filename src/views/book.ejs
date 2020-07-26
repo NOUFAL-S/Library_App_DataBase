@@ -5,14 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%=title%></title>
     <link rel="stylesheet" href="../css/about-us.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     
 </head>
   <body>
@@ -47,17 +41,10 @@
       </nav>
       <div class="container " style="width: max-content;">
         <div class="row "style="height:50px"></div>
-<h1 style=" text-align: center; color: rgb(226, 226, 226);font-family: fantasy;text-decoration: underline;font-size: 80px;">
-BOOK
-</h1>
-
-
-
-
+<h1 style=" text-align: center; color: rgb(226, 226, 226);font-family: fantasy;text-decoration: underline;font-size: 80px;">BOOK</h1>
 <div class="card mb-8" style="height: 500px;width: auto;" >
-  
-  <div class="row">
-    <div class="  col-md-4">
+ <div class="row">
+<div class="  col-md-4">
       <img src="/images/<%=book.image%>" class="img-fluid" alt="...">
     </div>
     <div class="cam col-md-8">
@@ -65,21 +52,13 @@ BOOK
         <h4 class="card-title"><label>Title:</label> <%=book.title%></h4>
         <h6 class="card-subtitle"><label>Author:</label> <%=book.author%></h6><br>
         <h6 class="card-subtitle"><label>Genre:</label> <%=book.genre%></h6><br> 
-        <p class="card-text"><h3><%=book.Description%></h3></p>
+        <a href="/books/book/edit/<%=book._id%>"><button style="width: max-content; border-radius: 5px;margin-left: 5px;"> UPDATE or DELETE</button></a>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-        </div>
-
-            
-      <div class="footer">
+</div>
+<div class="footer">
    <b>copyright@2020</b>
 </div>
      

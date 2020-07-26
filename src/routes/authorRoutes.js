@@ -41,6 +41,13 @@ function router(nav){
         });
     
      });
+     authorsRouter.get('/:id',function(req,res){
+        const id= req.params.id
+        res.render('author', {nav,
+        title:'library',
+        author:authors[id]
+    });
+    });
     
    
     

@@ -2,105 +2,7 @@ const express = require('express');
 const booksRouter=express.Router();
 const Bookdata= require('../model/Bookdata');
 function router(nav){
-  //   var books=[
-
-
-
-  //     { 
-      
-  //       Description:`A reader lives a thousand lives before he dies . . . ...
-  //       “Until I feared I would lose it, I never loved to read. ...
-  //       “Never trust anyone who has not brought a book with them.” – ...
-  //       “You can never get a cup of tea large enough or a book long enough to suit me.”`,
-
-  //       img:'b1.jpg'
-    
-  // },
-  //     { 
-      
-  //       Description:`A reader lives a thousand lives before he dies . . . ...
-  //       “Until I feared I would lose it, I never loved to read. ...
-  //       “Never trust anyone who has not brought a book with them.” – ...
-  //       “You can never get a cup of tea large enough or a book long enough to suit me.”`,
-
-  //       img:'b2.jpg'
-    
-  // },
-  //     { 
-      
-  //       Description:`A reader lives a thousand lives before he dies . . . ...
-  //       “Until I feared I would lose it, I never loved to read. ...
-  //       “Never trust anyone who has not brought a book with them.” – ...
-  //       “You can never get a cup of tea large enough or a book long enough to suit me.”`,
-
-  //       img:'b3.jpg'
-    
-  // },
-  //     { 
-      
-  //       Description:`A reader lives a thousand lives before he dies . . . ...
-  //       “Until I feared I would lose it, I never loved to read. ...
-  //       “Never trust anyone who has not brought a book with them.” – ...
-  //       “You can never get a cup of tea large enough or a book long enough to suit me.”`,
-
-  //       img:'c1.jpg'
-    
-  // },
-  //     { 
-      
-  //       Description:`A reader lives a thousand lives before he dies . . . ...
-  //       “Until I feared I would lose it, I never loved to read. ...
-  //       “Never trust anyone who has not brought a book with them.” – ...
-  //       “You can never get a cup of tea large enough or a book long enough to suit me.”`,
-
-  //       img:'c2.jpg'
-    
-  // },
-  //     { 
-      
-  //       Description:`A reader lives a thousand lives before he dies . . . ...
-  //       “Until I feared I would lose it, I never loved to read. ...
-  //       “Never trust anyone who has not brought a book with them.” – ...
-  //       “You can never get a cup of tea large enough or a book long enough to suit me.”`,
-
-  //       img:'c3.jpg'
-    
-  // },
-  //     { 
-      
-  //       Description:`A reader lives a thousand lives before he dies . . . ...
-  //       “Until I feared I would lose it, I never loved to read. ...
-  //       “Never trust anyone who has not brought a book with them.” – ...
-  //       “You can never get a cup of tea large enough or a book long enough to suit me.”`,
-
-  //       img:'k1.jpg'
-    
-  // },
-  //     { 
-      
-  //       Description:`A reader lives a thousand lives before he dies . . . ...
-  //       “Until I feared I would lose it, I never loved to read. ...
-  //       “Never trust anyone who has not brought a book with them.” – ...
-  //       “You can never get a cup of tea large enough or a book long enough to suit me.”`,
-
-  //       img:'k2.jpg'
-    
-  // },
-  //     { 
-      
-  //       Description:`A reader lives a thousand lives before he dies . . . ...
-  //       “Until I feared I would lose it, I never loved to read. ...
-  //       “Never trust anyone who has not brought a book with them.” – ...
-  //       “You can never get a cup of tea large enough or a book long enough to suit me.”`,
-
-  //       img:'k3.jpg'
-    
-  // },
-     
-   
-        
-           
-  //   ]
+  
     
     booksRouter.get('/',function(req,res){
       Bookdata.find()
@@ -109,10 +11,10 @@ function router(nav){
         { nav,
             title:'Books',
             books
-     });
+     })
       })
        
-    });
+    })
     
     booksRouter.get('/:id',function(req,res){
         const id= req.params.id;
@@ -122,10 +24,43 @@ function router(nav){
           {nav,
             title:'library',
             book
-        });
+        })
+        })
+
+    booksRouter.get('/book/edit/:id',function(req,res){
+        const id= req.params.id;
+        Bookdata.findOne({_id: id})
+        .then(function(book){
+          res.render('bookedit', 
+          {nav,
+            title:'library',
+            book
+        })
         })
       
-    });
+    booksRouter.post('/book/update',function(req,res){
+      var id=req.body.id;  
+      var title=req.body.title;  
+      var author=req.body.author;  
+      var genre=req.body.genre;  
+      var image=req.body.image;  
+    Bookdata.updateOne({_id:id},{$set:{title:title,author:author,genre:genre,image:image}},function(req,res){
+
+    })
+    res.redirect('/books');
+    })
+
+
+    booksRouter.get('/delete/:id',function(req,res){
+      var id=req.params.id;
+    Bookdata.findByIdAndRemove(req.params.id,function(req,res){
+
+    })
+    res.redirect('/books');
+    })
+   })
+      
+   });
 
     return booksRouter;
 }
